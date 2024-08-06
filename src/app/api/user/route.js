@@ -1,9 +1,10 @@
 import { getRequestContext } from "@cloudflare/next-on-pages";
+import { NextResponse } from "next/server";
 
 export const runtime = "edge";
 
 export async function GET(request, Response) {
-  let responseText = "Hello World------helo";
+  let responseText = "Hello";
   let url = new URL(request.url);
   let username = url.searchParams.get("name");
   // In the edge runtime you can use Bindings that are available in your application
@@ -20,5 +21,5 @@ export async function GET(request, Response) {
 
   // const myKv = getRequestContext().env.MY_KV_NAMESPACE;
   console.log("******", username);
-  return new Response(username);
+  return NextResponse.json({ message: responseText, username });
 }
