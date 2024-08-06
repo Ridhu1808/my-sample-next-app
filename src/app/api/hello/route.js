@@ -17,6 +17,6 @@ export async function GET(request) {
   // const suffix = await myKv.get('suffix')
   // responseText += suffix
 
-  const myKv = getRequestContext().env.MY_KV_NAMESPACE;
-  return new Response(responseText, myKv);
+  // const myKv = getRequestContext().env.MY_KV_NAMESPACE;
+  return new Response(responseText);
 }
