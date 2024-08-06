@@ -18,5 +18,6 @@ export async function GET(request, Response) {
   // responseText += suffix
 
   // const myKv = getRequestContext().env.MY_KV_NAMESPACE;
+  console.log("******", username);
   return new Response(responseText, username);
 }
