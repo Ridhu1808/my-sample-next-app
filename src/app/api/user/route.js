@@ -20,5 +20,5 @@ export async function GET(request, Response) {
 
   // const myKv = getRequestContext().env.MY_KV_NAMESPACE;
   console.log("******", username);
-  return new Response(responseText, "Hello" + username);
+  return new Response(username);
 }
