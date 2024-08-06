@@ -4,7 +4,8 @@ export const runtime = "edge";
 
 export async function GET(request, Response) {
   let responseText = "Hello World------helo";
-  let username = req.body();
+  let url = new URL(request.url);
+  let username = url.searchParams.get("name");
   // In the edge runtime you can use Bindings that are available in your application
   // (for more details see:
   //    - https://developers.cloudflare.com/pages/framework-guides/deploy-a-nextjs-site/#use-bindings-in-your-nextjs-application
@@ -19,5 +20,5 @@ export async function GET(request, Response) {
 
   // const myKv = getRequestContext().env.MY_KV_NAMESPACE;
   console.log("******", username);
-  return new Response(responseText, username);
+  return new Response(responseText, "Hello" + username);
 }
